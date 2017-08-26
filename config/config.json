@@ -1,0 +1,8 @@
+{
+  "port":3000,
+  "mongoUri":"mongodb://127.0.0.1/neuro",
+  "auth": {
+    "user": "kingspeed07@gmail.com",
+    "pass": "aqua06062015gelik"
+  }
+}

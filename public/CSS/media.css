@@ -1,0 +1,48 @@
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1366px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  section.cabinet {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  section.login {
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-bottom: 80px;
+  }
+  section.cabinet div.cabinet-wrap div.currencys {
+    padding-right: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  section.cabinet div.cabinet-wrap div.top-nav div.nav-wrap ul li a {
+    font-size: 14x;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 500px) {
+  section.cabinet div.cabinet-wrap div.top-nav div.nav-wrap ul li a {
+    font-size: 12px;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 380px) {
+  section.cabinet div.cabinet-wrap div.top-nav div.nav-wrap ul li a {
+    font-size: 10px;
+  }
+}

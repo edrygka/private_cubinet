@@ -1,0 +1,48 @@
+<script>
+            document.addEventListener('DOMContentLoaded' , function(){
+                var getCopyright = document.querySelectorAll('footer > p.cpt')[0],
+                date = new Date();
+                getCopyright.innerHTML += ' ' + date.getFullYear();
+            });
+    </script>
+<div class="parallax-wrap">
+        <section class="login" id="register">
+            <div class="cabinet-form-wrap">
+                <form method="post" action="/users/register" id="regform" class="main-form">
+                    <p class="form-name">Registration</p>
+                    <label>
+                        <span class="input-name">Name:</span>
+                        <input type="text" placeholder="Name" name="name" required>
+                    </label>
+                    <label>
+                        <span class="input-name">Username:</span>
+                        <input type="text" name="username" placeholder="Username" required>
+                    </label>
+                    <label>
+                        <span class="input-name">Email:</span>
+                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                    </label>
+                    <label>
+                        <span class="input-name">Password:</span>
+                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                    </label>
+                    <label>
+                        <span class="input-name">Repeat password:</span>
+                        <input type="password" name="password2" placeholder="Password" required>
+                    </label>
+                    <button type="submit" class="form-btns">Submit</button>
+                    <a href="/users/login" class="extrabtn form-btns">Login?</a>
+            </form>
+            {{#if error}}
+                <p class="sucess-confirm">Error,invalid fields.</p>
+            {{/if}} 
+            </div>
+        </section>
+        <footer>
+            <p class="cpt">Copyright © <a href="https://neuroseed.io">neuroseed.io</a></p>
+        </footer>
+    </div>
+    <script src="/js/libs.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/parallaxbg.js"></script>
+    <script src="/js/ie11fix.js"></script>

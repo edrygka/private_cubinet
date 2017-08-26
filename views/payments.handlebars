@@ -1,0 +1,96 @@
+                        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+                        <script src="/socket.io/socket.io.js"></script>
+                        <script>
+                               window.addEventListener('DOMContentLoaded' , function() {
+                                    var startTime = 1;
+                                var timerId;
+                                var socket
+                                function getRatios() {
+                                    socket = io.connect('http://localhost:3000');
+                                    socket.on('currencies', (data) => {
+                                    $('#BTC').html(data.USD.toFixed(2) + " USD")
+                                    $('#ETH').html(data.ETH.toFixed(4) + " ETH")
+                                    socket.emit('response', { my: 'data' });
+                                    //console.log(data);
+                                    });
+                                    timerId = setTimeout(function() {
+                                        startTime = 5000;
+                                        getRatios();
+                                    },startTime);
+                                }
+                                
+                                document.addEventListener('blur' , function() {
+                                    clearTimeout(timerId);
+                                });
+                                document.addEventListener('focus' , function() {
+                                    startTime = 1;
+                                    getRatios();
+                                });
+                                getRatios();
+                               });
+                                
+                        </script>
+                        <div class="render-item" data-page="payments">
+                        <div class="page-title">
+                                <p class="balance">Payments <span class="text-right">Balance : <b id="balance-amount">BTC: <span class="load-hide">balance_BTC</span> ETH: <span class="load-hide">balance_ETH</span></b></span></p>
+                            </div>
+                            <div class="page-content">
+                                <div class="currencys col-xs-12 col-sm-12 col-md-6">
+                                    <div class="c-wrap" id="btc" data-currency-type="btc">
+                                        <span class="main-line">
+                                            <img src="/images/btc.svg" alt="Bitcion" class="currency-icon">
+                                            <span class="ratios">Value : <b class="value">1 BTC</b> | Ratio : <b class="ratios" id="BTC">0</b></span>
+                                        </span>
+                                            <div id="wallets-data" class="wallets-data">
+                                                <input type="text" class="user-wallet" value ="{{address_BTC}}">
+                                                <button class="copy-wallet">Save</button>
+                                            </div>
+                                        <button class="expand"><i class="icon-down-big"></i></button>
+                                    </div>
+                                    <div class="c-wrap" id="eth" data-currency-type="eth">
+                                        <span class="main-line">
+                                            <img src="/images/eth.svg" alt="Bitcion" class="currency-icon">
+                                            <span class="ratios">Value : <b class="value">1 BTC</b> | Ratio : <b class="ratios" id="ETH">0</b></span>
+                                        </span>
+                                            <div id="wallets-data" class="wallets-data">
+                                                <input type="text" class="user-wallet" value ="{{address_ETH}}">
+                                                <button class="copy-wallet">Save</button>
+                                            </div>
+                                        <button class="expand"><i class="icon-down-big"></i></button>
+                                    </div>
+                                    
+                                </div>                                                  
+                                <div class="qr-code col-xs-12 col-sm-12 col-md-6">
+                                    <div class="user">
+                                        <div class="qr-wrap">
+                                            <img src="/images/qr-example.svg" alt="QR-Code" id="qr-value">
+                                        </div>
+                                        <div class="user-wallet-wrap show-wallets-data">
+                                            <input type="text" class="user-show-wallet" value ="1FfmbHfnpaZjKFvyi1okTjJJusN455paPH" id="user-wallet">
+                                            <button class="copy-wallet">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            window.addEventListener('DOMContentLoaded' , function() {
+                                var startTime = 5000;
+                                var timerId;
+                                function getRatios() {
+                                    console.log(location.href)
+                                    $.ajax({
+                                        url: location.href + '/start-function',
+                                        method: 'POST',
+                                        data: '',
+                                        success: function (data) {
+                                            console.log(data)
+                                        }
+                                    })
+                                    timerId = setTimeout(function() {
+                                        getRatios();
+                                    },startTime);
+                                }
+                                getRatios();
+                            });
+                        </script>

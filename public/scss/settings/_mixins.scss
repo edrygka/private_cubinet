@@ -1,0 +1,30 @@
+
+
+
+//CLEARFIX ---> usage  @extend %clearfix 
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+//////////////////////////////////////
+
+
+//Prefix ---> usage @include a_prefix(atribute,value)
+$prefixes: '-webkit-' , '-moz-' , '-o-' , '-ms-';
+@mixin prefix($atr,$val) {
+    @each $i in $prefixes {
+        #{$i}#{$atr}: $val;
+    }
+    #{$atr}: $val;
+}
+
+
+//////////////////////////////////////
+
+

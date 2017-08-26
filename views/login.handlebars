@@ -1,0 +1,42 @@
+<script>
+            document.addEventListener('DOMContentLoaded' , function(){
+                var getCopyright = document.querySelectorAll('footer > p.cpt')[0],
+                date = new Date();
+                getCopyright.innerHTML += ' ' + date.getFullYear();
+            });
+    </script>
+<div class="parallax-wrap">
+        <section class="login" >
+            <div class="cabinet-form-wrap">
+                <form method="post" action="/users/login" class="main-form" id="login">
+                    <p class="form-name">Sign in</p>
+                    <label>
+                        <span class="input-name">Username:</span>
+                        <input type="text" name="username" placeholder="Username" required>
+                    </label>
+                    <label>
+                        <span class="input-name">Password:</span>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </label>
+                    <div class="btns-wrap">
+                        <button type="submit" class="form-btns"> Submit</button>
+                        <a href="/users/register" class="form-btns">Sign Up</a>
+                        <a href="/users/pwdrecovery/" class="extrabtn form-btns">Forgot your password?</a>
+                    </div>
+            </form>
+                {{#if status}}
+                <p class="sucess-confirm">Account confirmed , you can login now.</p>
+                {{/if}}  
+                {{#if error}}
+                <p class="sucess-confirm">Invalid login or password</p>
+                {{/if}} 
+            </div>
+        </section>
+        <footer>
+            <p class="cpt">Copyright © <a href="https://neuroseed.io">neuroseed.io</a></p> 
+        </footer>
+    </div>
+    <script src="/js/libs.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/parallaxbg.js"></script>
+    <script src="/js/ie11fix.js"></script>
